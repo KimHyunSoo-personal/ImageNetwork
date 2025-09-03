@@ -3,4 +3,4 @@
 기존 ILSVRC 대회에서 제공하는 이미지 데이터는 너무 크기가 방대하여 상대적으로 크기가 작은 CIFAR 데이터를 224x224로 transform하여 진행하였다.
 또한 ILSVRC 데이터셋은 class가 1000개인 반면 CIFAR은 class가 100개이기에 마지막 fc layer단을 100으로 해주어 조정하였다.
 해당 논문에서는 GPU용량이 3GB의 한계가 있어 GPU 2개를 사용하여 task를 분할하는 방식으로 접근하였다. 현재는 기술의 발전으로 저장할 수 있는 메모리 용량이 커짐에 따라 필요로 하지 않지만 해당 scheme을 구조적으로 모방하여 해당 과정에서의 실제 데이터의 흐름을 직접 체험해보고자 했다.
-처음 구현할 때 Dropout을 까먹고 넣지 않고 구현하여 Dropout을 넣은 버전으로 다시 시도하였다. 논문에서 "Dropout roughly doubles the number of iterations required to converge."라고 하였는데 
+처음 구현할 때 Dropout을 까먹고 넣지 않고 구현하여 Dropout을 넣은 버전으로 다시 시도하였다. 논문에서 "Without dropout, our network exhibits substantial overfitting. Dropout roughly doubles the number of iterations required to converge."라고 하였는데 overfitting이란 trainset의 noise까지 학습하여 test accuracy가 감소하는 현상이라 이해하고 있는 관점에서 accuracy가 감소하는 것은 확인하지 못했지만 Val Loss가 증가하는 현상은 목격할 수 있었다. 수렴 속도 또한 train accuracy가 90이 넘어가는 시점이 10에서 18로 약 2배 가량 증가한 것또한 확인할 수 있었다. val accuracy는 5퍼 가량 증가한 것을 통해 Dropout이 일반화에 도움이 된다는 것도 확인할 수 있었다.
