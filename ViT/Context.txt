@@ -1,0 +1,6 @@
+참고: https://arxiv.org/pdf/2010.11929
+
+transformer기반 image classifier를 구현해보았다.
+train acc의 경우 빠르게 증가했지만 test set acc가 40퍼 정도로 매우 낮은 수치를 기록하고 있다.]
+CIFAR100의 경우 데이터셋의 크기가 너무 작아 성능이 안나온다.
+ImageNet의 pre-trained parameter를 가지고 fine-tuning을 해야 잘 나오지만 컴퓨터 성능의 한계로 처음부터 학습을 시작하니 overfitting이 너무 빨리 일어난 것으로 추측된다.
